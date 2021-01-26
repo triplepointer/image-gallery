@@ -1,3 +1,7 @@
+# example url of uploading images(format must match)
+
+https://don16obqbay2c.cloudfront.net/frontend-test-task/gallery-images.json
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
