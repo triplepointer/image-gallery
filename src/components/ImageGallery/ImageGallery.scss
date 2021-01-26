@@ -1,0 +1,27 @@
+.images {
+    margin: 20px auto;
+    max-width: 860px;
+    min-width: 320px;
+
+    &__text {
+        position: absolute; 
+        z-index: 1;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 28px;
+        background-color: white;
+        width: 100%;
+        transform: rotateX(90deg);
+        transition: all 0.2s linear;
+    }
+
+    &__item {
+        cursor: pointer;
+    }
+
+    &__item:hover + &__text{
+        transform: rotateX(0deg);
+    }
+
+
+}

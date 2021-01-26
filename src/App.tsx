@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import './App.scss';
+import Form from './components/Form';
+import ImageGallery from './components/ImageGallery';
+import {connect} from 'react-redux';
+import {setImagesActionCreator} from './store/reducers/Form/actions'
 
-function App() {
+function App({setImagesActionCreator}:any) {
+
+  function getCallback(setImagesActionCreator:any) {
+    setImagesActionCreator(JSON.parse(localStorage.getItem('images')!));
+  }
+
+  useEffect(():void => {
+    if(localStorage.getItem('images') !== null)
+      getCallback(setImagesActionCreator);
+  }, [localStorage.getItem('images')])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Form />
+      <ImageGallery />
     </div>
   );
 }
 
-export default App;
+const mapDispatchToProps = (dispatch:any) => {
+  return {
+    setImagesActionCreator: (images:any) => dispatch(setImagesActionCreator(images))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App);
