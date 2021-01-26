@@ -55,6 +55,7 @@ class JustifiedGrid extends React.Component<Props, State> {
       style
     } = this.props as PropsWithDefaults;
     const wrapperWidth = (this.wrapperEl) ? this.wrapperEl.offsetWidth : 0;
+    debugger;
     const rowWidth = width || wrapperWidth;
     return curateImageList(images, rowWidth, {
       gutter,

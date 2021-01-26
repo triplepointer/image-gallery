@@ -45,7 +45,6 @@ export const onFileDragOverActionCreator = (e:any) => (dispatch:any) => {
 
 export const handleImageDelete = (e:any) => (dispatch:any,getState:any) => {
     dispatch({type: HANDLE_IMAGE_DELETE});
-    debugger;
     const imgSrc = e.target.src;
     const {images} = getState().gallery;
     const _images = images.filter((img:any) => img.url !== imgSrc );

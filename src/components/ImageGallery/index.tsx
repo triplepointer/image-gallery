@@ -14,14 +14,17 @@ function ImageGallery({
 		onDrop={onFileDropActionCreator}
     onDragOver={onFileDragOverActionCreator}
     >
-			      <JustifiedGrid images={images} maxRowHeight={200}>
+            <JustifiedGrid 
+              images={images}
+              gutter={1} 
+              maxRowHeight={200}>
         {processedImages => {
           return (
             <React.Fragment>
-              {processedImages.map(image => {
+              {processedImages.map((image, index) => {
                 const { url, width, height} = image;
                 return (
-                  <div style={{display: "inline-flex",justifyContent: "center", alignItems: "center", position: "relative",width: width, height: height}}  >
+                  <div key={index} style={{display: "inline-flex",justifyContent: "center", alignItems: "center", position: "relative",width: width, height: height}}  >
                     <img className="images__item" src={url} width={width} height={height} alt="" onClick={handleImageDelete}/>
                     <div className="images__text">DELETE</div>
                   </div>

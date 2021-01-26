@@ -19,7 +19,6 @@ export const setUrlActionCreator = (url: any) => (
 export const addDataActionCreator = (e:any) => async  (dispatch:any, getState:any) => {
     e.preventDefault();
     dispatch({type: ADD_DATA});
-    debugger;
     const {url} = getState().form;
     const response = await fetch(url);
     const _images = await response.json();
